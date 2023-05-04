@@ -45,7 +45,9 @@ class _CalcImcState extends State<CalcImc> {
   void resetCampos() {
     pesoController.text = "";
     alturaController.text = "";
-    info = "";
+    setState(() {
+      info = "";
+    });
   }
 
   @override
@@ -104,8 +106,10 @@ class _CalcImcState extends State<CalcImc> {
                         ),
                         contentPadding: EdgeInsets.fromLTRB(5, 0, 10, 0),
                         labelText: "Peso (Kg)",
-                        labelStyle:
-                            TextStyle(color: Colors.black, fontSize: 25)),
+                        labelStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold)),
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.black, fontSize: 25),
                     controller: pesoController,
@@ -113,9 +117,10 @@ class _CalcImcState extends State<CalcImc> {
                       if (value == null || value.isEmpty) {
                         return 'Insira seu Peso';
                       }
+                      return null;
                     },
                   ),
-                  SizedBox(height: 30),
+                  SizedBox(height: 75),
                   TextFormField(
                     keyboardType: TextInputType.number,
                     decoration: InputDecoration(
@@ -126,21 +131,26 @@ class _CalcImcState extends State<CalcImc> {
                         ),
                         contentPadding: EdgeInsets.fromLTRB(5, 0, 10, 0),
                         labelText: "Altura (Cm)",
-                        labelStyle:
-                            TextStyle(color: Colors.black, fontSize: 25)),
+                        labelStyle: TextStyle(
+                            color: Colors.black,
+                            fontSize: 25,
+                            fontWeight: FontWeight.bold)),
                     textAlign: TextAlign.center,
                     style: TextStyle(color: Colors.black, fontSize: 25),
                     controller: alturaController,
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'Insira seu Peso';
+                        return 'Insira sua Altura';
                       }
+                      return null;
                     },
                   ),
-                  SizedBox(height: 35),
+                  SizedBox(height: 80),
                   ElevatedButton(
                       onPressed: () {
-                        calcular();
+                        if (formkey.currentState!.validate()) {
+                          calcular();
+                        }
                       },
                       child: Text('Calcular'),
                       style: ElevatedButton.styleFrom(
