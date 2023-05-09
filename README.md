@@ -2,7 +2,7 @@
 
 Este é um aplicativo desenvolvido em Flutter para calcular o Índice de Massa Corporal (IMC) de uma pessoa. O IMC é um indicador utilizado para avaliar se uma pessoa está abaixo, acima ou no peso ideal de acordo com sua altura.
 
-## Funcionalodades
+## Funcionalidades
 O aplicativo possui as seguintes funcionalidades:
 - Cálculo do IMC: o usuário pode inserir sua altura e peso e o aplicativo irá calcular o seu IMC.
 - Classificação do IMC: após o cálculo do IMC, o aplicativo exibe uma mensagem informando a classificação do IMC do usuário, como abaixo do peso, peso normal, sobrepeso, obesidade grau I, obesidade grau II ou obesidade grau III;
